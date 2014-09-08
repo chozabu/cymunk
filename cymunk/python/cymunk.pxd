@@ -13,7 +13,7 @@ cdef extern from "chipmunk/chipmunk.h":
     ctypedef datapointer cpDataPointer
     ctypedef bool cpBool
     ctypedef int cpGroup
-    ctypedef int cpLayers
+    ctypedef long cpLayers
     ctypedef int cpCollisionType
     ctypedef struct cpBB:
         cpFloat l, b, r ,t
@@ -72,6 +72,8 @@ cdef extern from "chipmunk/chipmunk.h":
         cpCollisionType collision_type
         # Group of this shape. Shapes in the same group don't collide
         cpGroup group
+        # Layers of this shape. Shapes different don't collide, used as the layers bitmask.
+        cpLayers layers
         # Hash
         cpHashValue hashid_private
 
